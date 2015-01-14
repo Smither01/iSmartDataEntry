@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">iSmartDataEntry</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="scan_text">请将扫描框对准设备或产品包装上的二维码</string>
+</resources>

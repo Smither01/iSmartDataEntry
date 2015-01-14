@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <SurfaceView
+            android:id="@+id/preview_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center" />
+
+        <com.mining.app.zxing.view.ViewfinderView
+            android:id="@+id/viewfinder_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+			android:id="@+id/rel_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/zq_public_top_bg" >
+
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:src="@drawable/zq_public_back" >
+            </ImageButton>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBaseline="@+id/backBtn"
+                android:layout_alignBottom="@+id/backBtn"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:text="扫描智能设备二维码"
+                android:textColor="#ffffff"
+                android:textSize="18sp" >
+            </TextView>
+        </RelativeLayout>
+        
+        <TextView 
+        android:id="@+id/text_input"    
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/btn_input"
+	    android:layout_marginBottom="15dp"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:text="或者输入产品上的编码"
+	    android:textColor="#40ffffff"
+	    android:textSize="16sp"/>
+        
+       <Button 
+	    android:id="@+id/btn_input"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/btn_cancle"
+	    android:layout_marginBottom="15dp"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:background="@drawable/zq_study_pli_icon_bg"
+	    android:text="手动输入编码"
+	    android:textColor="#fff"
+	    android:textSize="18sp"/>
+        
+        
+        <Button 
+	    android:id="@+id/btn_cancle"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="15dp"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:background="@drawable/zq_study_pli_icon_bg"
+	    android:text="取消"
+	    android:textColor="#fff"
+	    android:textSize="18sp"/>
+        
+    </RelativeLayout>
+
+</FrameLayout>
