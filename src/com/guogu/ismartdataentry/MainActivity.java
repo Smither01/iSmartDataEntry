@@ -161,6 +161,9 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode != RESULT_OK) {
+			return;
+		}
 		if (requestCode == PACKAGE_REQUEST) {
 			//该处更新套餐信息
 			try {
@@ -180,9 +183,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 				return;
 			}
 		}else {
-			if (resultCode != RESULT_OK) {
-				return;
-			}
+			
 			try {
 				JSONObject obj;
 				obj = new JSONObject(data.getExtras().get("result").toString());
