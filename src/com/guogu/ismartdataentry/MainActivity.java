@@ -180,6 +180,9 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 				return;
 			}
 		}else {
+			if (resultCode != RESULT_OK) {
+				return;
+			}
 			try {
 				JSONObject obj;
 				obj = new JSONObject(data.getExtras().get("result").toString());
