@@ -34,6 +34,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 	private String pkgPwd;
 	private ProgressDialog progressDialog;
 	private Button back;
+	private Button finished;
 	
 	private final static int PACKAGE_REQUEST = 0xFFFF;
 	
@@ -64,6 +65,8 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 		text.setOnClickListener(this);
 		back = (Button)findViewById(R.id.backBtn);
 		back.setOnClickListener(this);
+		finished = (Button)findViewById(R.id.finished);
+		finished.setOnClickListener(this);
 	}
 
 	@Override
@@ -74,22 +77,12 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 			int location  = Integer.valueOf(v.getTag().toString());
 			listJson.remove(location);
 			adapter.notifyDataSetChanged();
+			isAddPackage = false;
+			text.setText("添加套餐");
 			break;
 		case R.id.editBtn:
-			if (!isAddPackage) {
-				Intent intent = new Intent(this, MipcaActivityCapture.class);
-				startActivityForResult(intent, PACKAGE_REQUEST);
-			}
-			else {
-				//调用远程  提交
-				if (listJson.size() < 2) {
-					Toast.makeText(this, "请添加设备", Toast.LENGTH_SHORT).show();
-					return;
-				}else {
-					progressDialog = ProgressDialog.show(this, "正在发送数据","请稍候", true, false);
-					sendData();
-				}
-			}
+			Intent intent = new Intent(this, MipcaActivityCapture.class);
+			startActivityForResult(intent, PACKAGE_REQUEST);
 			break;
 		case R.id.backBtn:
 			isAddPackage = false;
@@ -97,6 +90,20 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 			listJson.clear();
 			listJson.add(objAdd);
 			adapter.notifyDataSetChanged();
+			break;
+		case R.id.finished:
+			//调用远程  提交
+			if (listJson.size() < 2) {
+				Toast.makeText(this, "请添加设备", Toast.LENGTH_SHORT).show();
+				return;
+			}else {
+				if (!isAddPackage) {
+					Toast.makeText(this, "请添加套餐包", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				progressDialog = ProgressDialog.show(this, "正在发送数据","请稍候", true, false);
+				sendData();
+			}
 			break;
 		default:
 			break;
@@ -169,7 +176,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 		if (requestCode == PACKAGE_REQUEST) {
 			//该处更新套餐信息
 			try {
-				text.setText("提交");
+				text.setText("更换套餐");
 				isAddPackage = true;
 				JSONObject obj;		
 				obj = new JSONObject(data.getExtras().get("result").toString());

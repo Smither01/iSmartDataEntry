@@ -67,9 +67,14 @@ public class DataAdapter extends BaseAdapter{
 			viewHolder.buttonTest.setVisibility(View.VISIBLE);
 			viewHolder.model_text.setVisibility(View.VISIBLE);
 		}	
-		viewHolder.model_text.setText("第"+(position+1)+"个设备");
-		viewHolder.buttonTest.setTag(position);
-		viewHolder.buttonTest.setOnClickListener(listener);
+		try {
+			viewHolder.model_text.setText("第"+(position+1)+"个设备"+" MAC:"+list.get(position).getString("ad"));
+			viewHolder.buttonTest.setTag(position);
+			viewHolder.buttonTest.setOnClickListener(listener);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return convertView;
 	}
 	
