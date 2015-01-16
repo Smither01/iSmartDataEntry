@@ -53,6 +53,7 @@ public class DataAdapter extends BaseAdapter{
 			viewHolder.model_text = (TextView)convertView.findViewById(R.id.model_front_Name);
 			viewHolder.buttonTest = (RelativeLayout)convertView.findViewById(R.id.testImage_parent);
 			viewHolder.buttonADD = (TextView)convertView.findViewById(R.id.model_add);
+			viewHolder.textView = (TextView)convertView.findViewById(R.id.model_Name);
 			convertView.setTag(viewHolder);
 		}else {
 			viewHolder = (ViewHolder) convertView.getTag();
@@ -62,13 +63,16 @@ public class DataAdapter extends BaseAdapter{
 			viewHolder.buttonADD.setVisibility(View.VISIBLE);
 			viewHolder.buttonTest.setVisibility(View.GONE);
 			viewHolder.model_text.setVisibility(View.GONE);
+			viewHolder.textView.setVisibility(View.GONE);
 		}else {
 			viewHolder.buttonADD.setVisibility(View.GONE);
 			viewHolder.buttonTest.setVisibility(View.VISIBLE);
 			viewHolder.model_text.setVisibility(View.VISIBLE);
+			viewHolder.textView.setVisibility(View.VISIBLE);
 		}	
 		try {
-			viewHolder.model_text.setText("第"+(position+1)+"个设备"+" MAC:"+list.get(position).getString("ad"));
+			viewHolder.model_text.setText("第"+(position+1)+"个设备"+":"+list.get(position).getString("tp"));
+			viewHolder.textView.setText("MAC:"+list.get(position).getString("ad"));
 			viewHolder.buttonTest.setTag(position);
 			viewHolder.buttonTest.setOnClickListener(listener);
 		} catch (Exception e) {
@@ -80,6 +84,7 @@ public class DataAdapter extends BaseAdapter{
 	
 	private static class ViewHolder {
 		TextView model_text;
+		TextView textView;
 		RelativeLayout buttonTest;
 		TextView buttonADD;
 	}

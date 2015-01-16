@@ -12,30 +12,38 @@
         android:background="#f7f7f7"
         android:paddingLeft="5dip"
         android:paddingRight="5dip" >
-
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical">
         <TextView
             android:id="@+id/model_front_Name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:ellipsize="end"
             android:gravity="center"
-            android:lines="2"
             android:text="name"
             android:textSize="17sp" />
 
         <TextView
             android:id="@+id/model_Name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/model_front_Name"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+             android:layout_weight="1"
+            android:layout_below="@+id/model_front_Name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
             android:ellipsize="end"
             android:gravity="center"
-            android:lines="2"
+            android:text="dsa"
             android:textSize="17sp" />
+        </LinearLayout>
         <TextView
             android:id="@+id/model_add"
             android:layout_width="wrap_content"
