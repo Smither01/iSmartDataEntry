@@ -27,9 +27,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="添加设备"
+            android:text="套餐打包"
             android:textColor="#ffffff"
-            android:textSize="18sp" >
+            android:textSize="20sp" >
         </TextView>
 
         <Button
